@@ -10,3 +10,8 @@ function ChosenWord(word) {
   this.length = word.length;
   this.letters = letterArray(word);
 }
+var randomWord = function() {
+  var allWords = ["planet", "pineapple", "spaceship", "skyscraper", "revolution", "television", "blackboard", "tulip", "vehicle", "psychology", "labyrinth", "manuscript"];
+  var chosenWord = allWords[Math.floor(Math.random()*allWords.length)];
+  return chosenWord;
+}

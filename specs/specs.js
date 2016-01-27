@@ -1,5 +1,5 @@
 describe('letterArray', function() {
-  it("will break down a given word into an array of individual letters", function() {
+  it("will break a given word into an array of individual letters", function() {
     expect(letterArray("apple")).to.eql(["a", "p", "p", "l", "e"]);
   });
 });
@@ -12,10 +12,3 @@ describe('ChosenWord', function() {
     expect(testChosenWord.letters).to.eql(["a", "p", "p", "l", "e"])
   });
 });
-
-// randomwordfunction() {
-//   var chosenWord = Math.random(["word1", "word2", "word3"])
-//   return chosenWord;
-// }
-//
-// Word(chosenWord)
