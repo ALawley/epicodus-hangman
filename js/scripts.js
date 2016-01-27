@@ -1,3 +1,4 @@
+// This *should*(?) be everything you need on the back end (we think). You'll just need to build the html of the page out, then create the front end code to tie everything together.
 function Game() {
   // we're setting this.lossCounter to 0 and will later in our code increment it by 1 with every wrong guess. Can be used as a loss condition when this.lossCounter >= a number of tries.
   this.lossCounter = 0;
