@@ -1,3 +1,5 @@
+var lossCounter = 0;
+
 var letterArray = function(word) {
   var wordArray = [];
   for (var index = 0; index < word.length; index +=1) {
@@ -22,5 +24,16 @@ var guessCheck = function(letter, word) {
       return true;
     }
   }
+  lossCounter += 1;
   return false;
+}
+
+var letterPositions = function(letter, word) {
+  var positionNumbers = [];
+  for (var index = 0; index < word.length; index += 1) {
+    if (word[index] === letter) {
+      positionNumbers.push(index);
+    }
+  }
+  return positionNumbers;    
 }
