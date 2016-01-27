@@ -12,3 +12,11 @@ describe('ChosenWord', function() {
     expect(testChosenWord.letters).to.eql(["a", "p", "p", "l", "e"])
   });
 });
+describe('guessCheck', function() {
+  it("returns false if the letter is not in the word", function() {
+    expect(guessCheck("b", "apple")).to.equal(false);
+  });
+  it("returns true if the letter is found in the word", function() {
+    expect(guessCheck("a", "apple")).to.equal(true);
+  });
+});

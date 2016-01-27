@@ -15,3 +15,12 @@ var randomWord = function() {
   var chosenWord = allWords[Math.floor(Math.random()*allWords.length)];
   return chosenWord;
 }
+
+var guessCheck = function(letter, word) {
+  for (var index = 0; index < word.length; index += 1) {
+    if (word[index] === letter) {
+      return true;
+    }
+  }
+  return false;
+}
