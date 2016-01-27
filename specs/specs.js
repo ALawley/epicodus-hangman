@@ -1,29 +1,23 @@
-describe('letterArray', function() {
-  it("will break a given word into an array of individual letters", function() {
-    expect(letterArray("apple")).to.eql(["a", "p", "p", "l", "e"]);
-  });
-});
-
-describe('ChosenWord', function() {
+describe('Word', function() {
   it("gets the necessary properties from a chosen word", function() {
-    var testChosenWord = new ChosenWord("apple");
-    expect(testChosenWord.word).to.equal("apple");
-    expect(testChosenWord.length).to.equal(5);
-    expect(testChosenWord.letters).to.eql(["a", "p", "p", "l", "e"])
+    var testWord = new Word("apple");
+    expect(testWord.word).to.equal("apple");
+    expect(testWord.length).to.equal(5);
+    expect(testWord.letters).to.eql(["a", "p", "p", "l", "e"])
   });
 });
 
-describe('guessCheck', function() {
-  it("returns false if the letter is not in the word", function() {
-    expect(guessCheck("b", "apple")).to.equal(false);
+describe('Game', function() {
+  it("returns false if the letter is not in the word when guessCheck is called", function() {
+    var testGame = new Game();
+    expect(testGame.guessCheck("b", "apple")).to.equal(false);
   });
-  it("returns true if the letter is found in the word", function() {
-    expect(guessCheck("a", "apple")).to.equal(true);
+  it("returns false if the letter is not in the word when guessCheck is called", function() {
+    var testGame = new Game();
+    expect(testGame.guessCheck("a", "apple")).to.equal(true);
   });
-});
-
-describe('letterPositions', function() {
-  it("will locate all instances of letter guessed", function() {
-    expect(letterPositions("a", "banana")).to.eql([1, 3, 5]);
+  it("will locate all instances of letter guessed when letterCheck is called", function() {
+    var testGame = new Game();
+    expect(testGame.letterPositions("a", "banana")).to.eql([1, 3, 5]);
   });
 });
