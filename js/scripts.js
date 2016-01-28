@@ -84,7 +84,7 @@ $(document).ready(function() {
       if (newGame.guessCheck(newGame.guess, newWord.word) === true) {
         // Gets all positions in the word where the succesfully guessed letter is found, then runs those into the array of what's currently solved, changing all elements in those spaces to the guessed letter.
         newWord.solvedArray = newWord.solvedAdd(newGame.letterPositions(newGame.guess, newWord.word), newGame.guess, newWord.solvedArray);
-        $(this).attr("disabled");
+        $(this).attr("disabled", "disabled");
         $(this).removeClass("btn-primary").addClass("btn-success");
         $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
         if (newGame.solveCounter === newWord.word.length) {
@@ -92,7 +92,7 @@ $(document).ready(function() {
           $("#win").show();
         } else {}
       } else {
-        $(this).attr("disabled");
+        $(this).attr("disabled", "disabled");
         $(this).removeClass("btn-primary").addClass("btn-danger");
         $("#lossImage").attr("src", "img/hang" + newGame.lossCounter + ".gif");
         if (newGame.lossCounter === 6) {
