@@ -4,6 +4,7 @@ function Game(Word) {
   this.lossCounter = 0;
   // this is the victory counter. Later in our code we increment it with each successful guess by the number of spaces containing that letter. When it equals the word's length, user wins.
   this.solveCounter = 0;
+  this.guess = "";
 }
 
 function Word(word) {
@@ -18,6 +19,13 @@ Game.prototype.randomWord = function() {
   var allWords = ["planet", "pineapple", "spaceship", "skyscraper", "revolution", "television", "blackboard", "tulip", "vehicle", "psychology", "labyrinth", "manuscript"];
   var chosenWord = allWords[Math.floor(Math.random()*allWords.length)];
   return chosenWord;
+}
+
+Word.prototype.solvedAdd = function(positionNumbers, guess, solvedArray) {
+  positionNumbers.forEach(function(positionNumber) {
+    solvedArray[positionNumber] = guess;
+  });
+  return solvedArray;
 }
 
 Word.prototype.solvedArraySetup = function(word) {
@@ -67,11 +75,18 @@ $(document).ready(function() {
     var newWord = new Word(newGame.randomWord());
     $("#gamestart").hide();
     $("#blankWord").show();
-    alert(newWord.word);
-    alert(newWord.letters);
-    alert(newWord.solvedArray);
     $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
 
 
+    $(".letters").click(function(event) {
+      event.preventDefault();
+      newGame.guess = ($(this).val());
+      if (newGame.guessCheck(newGame.guess, newWord.word) === true) {
+        newWord.solvedArray = newWord.solvedAdd(newGame.letterPositions(newGame.guess, newWord.word), newGame.guess, newWord.solvedArray);
+        $(this).attr("disabled");
+        $(this).removeClass("btn-primary").addClass("btn-success");
+        $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
+      }
+    });
   });
 });
