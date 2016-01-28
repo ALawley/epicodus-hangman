@@ -11,8 +11,57 @@
   <body>
     <div class="container">
       <h1>Hangman</h1>
-      
-
+      <h4>This game is basicly the same as what you grew up with. A word will be auto-generated for you and you will have letters to choose from for your guesses. You will have ten wrong guesses before the game will end unless you complete the game with correct choices.  Good luck!</h4>
+      <div id="blankWord">
+        <p></p>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="img/hang0.gif" id="lossImage">
+        </div>
+        <div class="col-md-9">
+          <div id="letterButtons">
+            <p>Make your choices from the letters below:</p>
+            <form id="buttonform">
+              <button type="submit" class="btn btn-primary btn-xs" value="a">A</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="b">B</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="c">C</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="d">D</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="e">E</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="f">F</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="g">G</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="h">H</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="i">I</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="j">J</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="k">K</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="l">L</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="m">M</button>
+              <br />
+              <button type="submit" class="btn btn-primary btn-xs" value="n">N</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="o">O</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="p">P</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="q">Q</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="r">R</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="s">S</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="t">T</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="u">U</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="v">V</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="w">W</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="x">X</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="y">Y</button>
+              <button type="submit" class="btn btn-primary btn-xs" value="z">Z</button>
+            </form>
+          </div>
+          <div id="lose">
+            <p>Sorry, you have lost!</p>
+            <button type="button" class="btn btn-primary reset">Play again?</button>
+          </div>
+          <div id="win">
+            <p>You win!</p>
+            <button type="button" class="btn btn-primary reset">Play again?</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
