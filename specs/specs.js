@@ -3,8 +3,13 @@ describe('Word', function() {
     var testWord = new Word("apple");
     expect(testWord.word).to.equal("apple");
     expect(testWord.length).to.equal(5);
-    expect(testWord.letters).to.eql(["a", "p", "p", "l", "e"])
-    expect(testWord.solvedArray).to.eql(["_", "_", "_", "_", "_"])
+    expect(testWord.letters).to.eql(["a", "p", "p", "l", "e"]);
+    expect(testWord.solvedArray).to.eql(["_", "_", "_", "_", "_"]);
+  });
+
+  it("will replace the corresponding underscored position(s) with the correct guessed letter", function() {
+    var testWord = new Word("apple");
+    expect(testWord.solvedAdd([1, 2], "p", ["_", "_", "_", "_", "_"])).to.eql(["_", "p", "p", "_", "_"]);
   });
 });
 
