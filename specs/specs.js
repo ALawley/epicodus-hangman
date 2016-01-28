@@ -11,6 +11,16 @@ describe('Word', function() {
     var testWord = new Word("apple");
     expect(testWord.solvedAdd([1, 2], "p", ["_", "_", "_", "_", "_"])).to.eql(["_", "p", "p", "_", "_"]);
   });
+
+  it("replacing the letters in a word with underscores into a new array", function() {
+    var testWord = new Word("apple");
+    expect(testWord.solvedArraySetup("apple")).to.eql(["_", "_", "_", "_", "_"]);
+  });
+
+  it("will convert an array of strings into a single string with spaces added between elements", function() {
+    var testWord = new Word("apple");
+    expect(testWord.solvedDisplay(["a", "p", "p", "l", "e"])).to.equal("a p p l e ");
+  });
 });
 
 describe('Game', function() {
