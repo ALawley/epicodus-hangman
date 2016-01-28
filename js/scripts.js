@@ -87,10 +87,18 @@ $(document).ready(function() {
         $(this).attr("disabled");
         $(this).removeClass("btn-primary").addClass("btn-success");
         $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
+        if (newGame.solveCounter === newWord.word.length) {
+          $("#letterButtons").hide();
+          $("#win").show();
+        } else {}
       } else {
         $(this).attr("disabled");
         $(this).removeClass("btn-primary").addClass("btn-danger");
         $("#lossImage").attr("src", "img/hang" + newGame.lossCounter + ".gif");
+        if (newGame.lossCounter === 6) {
+          $("#letterButtons").hide();
+          $("#lose").show();
+        }
       }
     });
   });
