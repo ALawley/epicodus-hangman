@@ -4,6 +4,7 @@ describe('Word', function() {
     expect(testWord.word).to.equal("apple");
     expect(testWord.length).to.equal(5);
     expect(testWord.letters).to.eql(["a", "p", "p", "l", "e"])
+    expect(testWord.solvedArray).to.eql(["_", "_", "_", "_", "_"])
   });
 });
 

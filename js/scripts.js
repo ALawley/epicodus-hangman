@@ -1,5 +1,5 @@
 // This *should*(?) be everything you need on the back end (we think). You'll just need to build the html of the page out, then create the front end code to tie everything together.
-function Game() {
+function Game(Word) {
   // we're setting this.lossCounter to 0 and will later in our code increment it by 1 with every wrong guess. Can be used as a loss condition when this.lossCounter >= a number of tries.
   this.lossCounter = 0;
   // this is the victory counter. Later in our code we increment it with each successful guess by the number of spaces containing that letter. When it equals the word's length, user wins.
@@ -11,12 +11,21 @@ function Word(word) {
   this.length = this.word.length;
   // sets this.letters equal to an array containing each individual letter of the input word as a string
   this.letters = this.word.split("");
+  this.solvedArray = Word.prototype.solvedArraySetup(word);
 }
 
 Game.prototype.randomWord = function() {
   var allWords = ["planet", "pineapple", "spaceship", "skyscraper", "revolution", "television", "blackboard", "tulip", "vehicle", "psychology", "labyrinth", "manuscript"];
   var chosenWord = allWords[Math.floor(Math.random()*allWords.length)];
   return chosenWord;
+}
+
+Word.prototype.solvedArraySetup = function(word) {
+    var underscoreArray = [];
+    for (var index = 0; index < word.length; index += 1) {
+      underscoreArray.push("_");
+    }
+    return underscoreArray;
 }
 
 // Evaluates guess as right or wrong. Checks for all letters of a word (2nd parameter), if an input letter (1st parameter) matches. Returns true and stops if does, increments loss counter and returns false if none do.
@@ -41,3 +50,28 @@ Game.prototype.letterPositions = function(letter, word) {
   this.solveCounter += positionNumbers.length
   return positionNumbers;
 }
+
+Word.prototype.solvedDisplay = function(solvedArray) {
+  var display = "";
+  var tempArray = solvedArray.slice();
+  for (var index = 0; index < solvedArray.length; index += 1) {
+    display = tempArray.pop() + " " + display;
+  }
+  return display;
+}
+
+$(document).ready(function() {
+  $(".play").click(function(event) {
+    event.preventDefault();
+    var newGame = new Game();
+    var newWord = new Word(newGame.randomWord());
+    $("#gamestart").hide();
+    $("#blankWord").show();
+    alert(newWord.word);
+    alert(newWord.letters);
+    alert(newWord.solvedArray);
+    $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
+
+
+  });
+});
