@@ -82,10 +82,15 @@ $(document).ready(function() {
       event.preventDefault();
       newGame.guess = ($(this).val());
       if (newGame.guessCheck(newGame.guess, newWord.word) === true) {
+        // Gets all positions in the word where the succesfully guessed letter is found, then runs those into the array of what's currently solved, changing all elements in those spaces to the guessed letter.
         newWord.solvedArray = newWord.solvedAdd(newGame.letterPositions(newGame.guess, newWord.word), newGame.guess, newWord.solvedArray);
         $(this).attr("disabled");
         $(this).removeClass("btn-primary").addClass("btn-success");
         $("#blankWord h2").text(newWord.solvedDisplay(newWord.solvedArray));
+      } else {
+        $(this).attr("disabled");
+        $(this).removeClass("btn-primary").addClass("btn-danger");
+        $("#lossImage").attr("src", "img/hang" + newGame.lossCounter + ".gif");
       }
     });
   });
