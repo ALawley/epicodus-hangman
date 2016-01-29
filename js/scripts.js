@@ -1,5 +1,5 @@
 // This *should*(?) be everything you need on the back end (we think). You'll just need to build the html of the page out, then create the front end code to tie everything together.
-function Game(Word) {
+function Game() {
   // we're setting this.lossCounter to 0 and will later in our code increment it by 1 with every wrong guess. Can be used as a loss condition when this.lossCounter >= a number of tries.
   this.lossCounter = 0;
   // this is the victory counter. Later in our code we increment it with each successful guess by the number of spaces containing that letter. When it equals the word's length, user wins.
@@ -42,6 +42,7 @@ function Word(word) {
   // sets this.letters equal to an array containing each individual letter of the input word as a string
   this.letters = this.word.split("");
   this.solvedArray = Word.prototype.solvedArraySetup(word);
+  this.solution = this.solvedDisplay(this.letters);
 }
 
 Word.prototype.solvedAdd = function(positionNumbers, guess, solvedArray) {
@@ -97,6 +98,7 @@ $(document).ready(function() {
         if (newGame.lossCounter === 6) {
           $("#letterButtons").hide();
           $("#lose").show();
+          $("#blankWord h2").text(newWord.solution);
         }
       }
     });
